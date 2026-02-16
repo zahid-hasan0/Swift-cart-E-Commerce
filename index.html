@@ -46,7 +46,20 @@
   </div>
     </header>
    <!-- Header Navbar design end -->
+    <!-- Open the modal using ID.showModal() method -->
+    
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle h-auto">
+      <div class="modal-box ">
+        <div  id="modal-content">
 
+        </div>
+          <form class="flex justify-end mt-1" method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
    <!-- Main content Area start  -->
     <section id="main_content" class="h-mvh ">
 
@@ -75,7 +88,7 @@
                 </span>
                 <div class="mt-8">
                     <h3 class="text-2xl font-semibold mb-2">Fast Delivery</h3>
-                    <p class="text-sm text-gray-600">
+                    <p class="text-sm text-black opacity-60">
                     Get your orders delivered to your doorstep quickly and efficiently.
                     </p>
                 </div>
@@ -85,12 +98,13 @@
                 
                   <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col lg:flex-1 items-start relative shadow-lg  ">
                 <span class="bg-purple-100 p-3 rounded-lg absolute -top-6 flex items-center justify-center shadow-md">
-                    <i class="fa-regular fa-truck text-2xl text-purple-500"></i>
+                   <i class="fa-regular fa-headphones  text-lg text-purple-500"></i>
                 </span>
                 <div class="mt-8">
-                    <h3 class="text-2xl font-semibold mb-2">Fast Delivery</h3>
-                    <p class="text-sm text-gray-600">
-                    Get your orders delivered to your doorstep quickly and efficiently.
+                    <h3 class="text-2xl font-semibold mb-2">24/7 Support</h3>
+                    <p class="text-sm text-black opacity-60">
+                   Our Support team is available <br>
+                   around the clock to assist you 
                     </p>
                 </div>
                 </div>
@@ -98,12 +112,14 @@
                   
                  <div class="h-44 bg-gray-100 p-6 rounded-md flex flex-col lg:flex-1 items-start relative shadow-lg  ">
                 <span class="bg-purple-100 p-3 rounded-lg absolute -top-6 flex items-center justify-center shadow-md">
-                    <i class="fa-regular fa-truck text-2xl text-purple-500"></i>
+                   <i class="fa-solid fa-shield-heart  text-lg text-purple-500"></i>
                 </span>
                 <div class="mt-8">
-                    <h3 class="text-2xl font-semibold mb-2">Fast Delivery</h3>
-                    <p class="text-sm text-gray-600">
-                    Get your orders delivered to your doorstep quickly and efficiently.
+                    <h3 class="text-2xl font-semibold mb-2">Secure Payment</h3>
+                    <p class="text-sm text-black opacity-60">
+                    Exprience safe and secure <br>
+                    transaction with our <br>
+                    encrypter payment systems.
                     </p>
                 </div>
                 </div>
@@ -111,18 +127,23 @@
                 
                  <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col lg:flex-1 items-start relative shadow-lg  ">
                 <span class="bg-purple-100 p-3 rounded-lg absolute -top-6 flex items-center justify-center shadow-md">
-                    <i class="fa-regular fa-truck text-2xl text-purple-500"></i>
+                   <i class="fa-solid fa-circle-notch text-lg text-purple-500"></i>
                 </span>
                 <div class="mt-8">
-                    <h3 class="text-2xl font-semibold mb-2">Fast Delivery</h3>
-                    <p class="text-sm text-gray-600">
-                    Get your orders delivered to your doorstep quickly and efficiently.
+                    <h3 class="text-2xl font-semibold mb-2">Easy Return</h3>
+                    <p class="text-sm text-black opacity-60">
+                    Not satisfied? Return your <br> products easily within 30 <br> days
                     </p>
                 </div>
                 </div>
 
             </div>
          </div>
+       </div>
+
+       <div class="lg:px-40 sm:px-2">
+        <h1 class="text-4xl font-bold text-black my-4">Trending Now</h1>
+        <div id="trendin-container" class="grid grid-cols-1 lg:grid-cols-4 my-5"></div>
        </div>
 
     </section>
@@ -180,5 +201,6 @@
 
 
    <script src="./js/script.js"></script>
+   <script src="./js/product.js"></script>
   </body>
 </html>

@@ -10,5 +10,11 @@ ul li a{
 .active{
     color: rgb(195, 0, 244);
     font-weight: bolder;
+
+}
+
+.activeP{
+    background: #b224ff;
+    color: white;
 }
 
