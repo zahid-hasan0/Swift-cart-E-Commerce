@@ -13,8 +13,10 @@
 
   </head>
   <body>
+
+    
    <!-- Header Navbar design start -->
-    <div class="navbar bg-base-100 shadow-sm lg:px-40 sm:px-2">
+    <header class="navbar bg-base-100 shadow-sm lg:px-40 sm:px-2">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -23,36 +25,37 @@
       <ul
         tabindex="-1"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Home</a></li>
-        <li><a>Products</a></li>
-        <li><a>About</a></li>
-        <li><a>Contact</a></li>
+        <li><a class="nav-item  active">Home</a></li>
+        <li><a class="nav-item ">Products</a></li>
+        <li><a class="nav-item ">About</a></li>
+        <li><a class="nav-item ">Contact</a></li>
       </ul>
     </div>
     <a class="btn btn-ghost font-extrabold text-3xl text-purple-700">SwiftCart</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-         <li><a class="text-purple-700 font-bold">Home</a></li>
-        <li><a>Products</a></li>
-        <li><a>About</a></li>
-        <li><a>Contact</a></li>
+         <li><a class="nav-item active ">Home</a></li>
+        <li><a class="nav-item " >Products</a></li>
+        <li><a class="nav-item ">About</a></li>
+        <li><a class="nav-item ">Contact</a></li>
     </ul>
   </div>
   <div class="navbar-end">
     <a class="btn"><i class="fa-solid fa-cart-shopping text-2xl"></i></a>
   </div>
-    </div>
+    </header>
    <!-- Header Navbar design end -->
 
    <!-- Main content Area start  -->
-    <section id="main-content" class="h-mvh ">
+    <section id="main_content" class="h-mvh ">
 
-        <div class="hero  min-h-150"style="background-image: url(./assets/banner-image.png);">
+       <div id="home-content" class="">
+         <div class="hero  min-h-150"style="background-image: url(./assets/banner-image.png);">
          <div style="background-color: rgba(0, 0, 0, 0.719);" class="hero-overlay"></div>
-        <div class=" text-neutral-content w-full lg:px-40 sm:px-2 bg">
+        <div class=" text-neutral-content w-full lg:px-40 sm:px-2 bg p-2">
                 <h1 class="mb-5 text-6xl font-bold">Best Collection For You</h1>
-        <p class="mb-5 font-thin text-lg text-gray-200">
+        <p class="mb-5 font-thin text-lg  text-gray-200">
       Discover the latest trends in fashion, electronics, and more. Shop with 
     with <br> confidence and style at SwiftCart
         </p>
@@ -61,12 +64,12 @@
         </div>
 
         <!-- choose us -->
-         <div class="flex flex-col items-center my-5 ">
+         <div class="flex flex-col  items-center my-5 ">
             <h1 class="text-5xl">Why Choose Us</h1>
-            <p class=" my-3 text-xl text-black-50 opacity-70 font-normal ">We provide the best shopping expreience with top-notch services.</p>
-            <div class="my-10 flex justify-between gap-10  w-full lg:px-40 sm:px-2">
+            <p class=" my-3 text-md p-2 text-center text-black-50 opacity-70 font-normal ">We provide the best shopping expreience with top-notch services.</p>
+            <div class="my-10 flex flex-wrap justify-between gap-10  w-full lg:px-40 sm:px-2">
                 <!-- div 1 -->
-                 <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col items-start relative shadow-lg  ">
+                 <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col lg:flex-1  items-start relative shadow-lg  ">
                 <span class="bg-purple-100 p-3 rounded-lg absolute -top-6 flex items-center justify-center shadow-md">
                     <i class="fa-regular fa-truck text-2xl text-purple-500"></i>
                 </span>
@@ -80,7 +83,7 @@
 
                <!-- div 2 -->
                 
-                  <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col items-start relative shadow-lg  ">
+                  <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col lg:flex-1 items-start relative shadow-lg  ">
                 <span class="bg-purple-100 p-3 rounded-lg absolute -top-6 flex items-center justify-center shadow-md">
                     <i class="fa-regular fa-truck text-2xl text-purple-500"></i>
                 </span>
@@ -93,7 +96,7 @@
                 </div>
                  <!-- div 3 -->
                   
-                 <div class="h-44 bg-gray-100 p-6 rounded-md flex flex-col items-start relative shadow-lg  ">
+                 <div class="h-44 bg-gray-100 p-6 rounded-md flex flex-col lg:flex-1 items-start relative shadow-lg  ">
                 <span class="bg-purple-100 p-3 rounded-lg absolute -top-6 flex items-center justify-center shadow-md">
                     <i class="fa-regular fa-truck text-2xl text-purple-500"></i>
                 </span>
@@ -106,7 +109,7 @@
                 </div>
                  <!-- div 4 -->
                 
-                 <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col items-start relative shadow-lg  ">
+                 <div class="h-44 bg-gray-100 p-6 rounded-xl flex flex-col lg:flex-1 items-start relative shadow-lg  ">
                 <span class="bg-purple-100 p-3 rounded-lg absolute -top-6 flex items-center justify-center shadow-md">
                     <i class="fa-regular fa-truck text-2xl text-purple-500"></i>
                 </span>
@@ -120,6 +123,7 @@
 
             </div>
          </div>
+       </div>
 
     </section>
    <!-- Main content Area end -->
@@ -172,5 +176,9 @@
       </div>
 </footer>
    <!-- footer end -->
+
+
+
+   <script src="./js/script.js"></script>
   </body>
 </html>

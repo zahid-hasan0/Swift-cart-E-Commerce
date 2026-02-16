@@ -7,4 +7,8 @@ ul li a{
     font-size: 1rem;
 }
 
+.active{
+    color: rgb(195, 0, 244);
+    font-weight: bolder;
+}
 
