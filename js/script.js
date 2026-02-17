@@ -20,11 +20,10 @@ item.addEventListener('click',()=>{
 
    else if(item.innerText=='Products'){
         
-        const spinner=`<span class="loading loading-spinner loading-xl"></span>`
-        mainContentArea.innerHTML=spinner;
+      
 
         mainContentArea.innerHTML=`<div class="my-6">
-            <div id='category-container' class='w-1/3 mx-auto flex justify-center mt-5 gap-2' > </div>
+            <div id='category-container' class='w-1/3 mx-auto flex flex-wrap justify-center mt-5 gap-2' > </div>
             <div id='product-container' class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-y-4 gap-x-3 mt-5 lg:px-40 sm:px-2 "></div>
         </div>`;
         productCategory();
@@ -44,7 +43,6 @@ item.addEventListener('click',()=>{
 
 
 const productCategory=async()=>{
-
         const category = await fetch('https://fakestoreapi.com/products/categories')
         const data =await category.json()
          displayProductCategory(data)
@@ -53,8 +51,7 @@ const productCategory=async()=>{
 }
 
 
-const displayProductCategory = (categorys) => {
-    
+const displayProductCategory = (categorys) => { 
     const productcategory = document.getElementById('category-container');
 
     const allbtn = document.createElement('button');
@@ -93,6 +90,12 @@ const displayProductCategory = (categorys) => {
 
 
 const productItem=async(category='all')=>{
+    const productContainer = document.getElementById('product-container');
+    productContainer.innerHTML = `
+        <div class="flex justify-center items-center h-40 col-span-4">
+            <span class="loading loading-spinner loading-lg"></span>
+        </div>
+    `;
 
     if(category=="all"){
          const url=await fetch('https://fakestoreapi.com/products')
@@ -135,14 +138,18 @@ const displayProduct=(data)=>{
                                     <h2 class="card-title">${product.title}</h2>
                                     <p class="text-lg font-bold">$ ${product.price}</p>
                                     <div class="card-actions justify-between">
-                                        <button class="btn btn-outline btn-primary" onclick="my_modal_5.showModal(); productDetails('${product.id}')"> <i class="fa-solid fa-eye"></i>  Details</button>
+                                        <button class="btn btn-outline btn-primary" onclick="productDetails('${product.id}')"> <i class="fa-solid fa-eye"></i>  Details</button>
                                         
-                                        <button class="btn btn-primary" onclick="productDetails('${product.id}"> <i class="fa-solid fa-cart-shopping text-white"></i> Add</button>
+                                        <button class="btn btn-primary add-to-cart" > <i class="fa-solid fa-cart-shopping text-white"></i> Add to cart</button>
                                     </div>
                                 </div>
                                 </div>`
-         productContainer.append(itemdiv)
-// <button class="btn" onclick="my_modal_5.showModal()">open modal</button> 
+                                 itemdiv.querySelector('.add-to-cart').addEventListener('click', () => {
+                                    addToCArt(product);
+                                });
+                               
+                productContainer.append(itemdiv)
+
 
         
     });
@@ -151,6 +158,13 @@ const displayProduct=(data)=>{
 
 
 const productDetails=async(id)=>{
+             my_modal_5.showModal();
+           document.getElementById('modal-content').innerHTML = `
+        <div class="flex justify-center items-center h-40">
+            <span class="loading loading-spinner loading-lg"></span>
+        </div>
+    `;
+
        const url=await fetch(`https://fakestoreapi.com/products/${id}`);
         const data=await url.json();
        displayDetails(data)
@@ -159,8 +173,9 @@ const productDetails=async(id)=>{
 const displayDetails=(product)=>{
     
             const detaisContainer=document.getElementById('modal-content');
+            detaisContainer.innerHTML='';
             const itemdiv=document.createElement('div');
-            
+            detaisContainer.innerHTML=''
              itemdiv.innerHTML=`<div class="card bg-base-100 w-auto shadow-sm p-4">
                                    
                                     <div class="card-body h-60">
@@ -174,6 +189,7 @@ const displayDetails=(product)=>{
                                         
                                     </div>
                                 </div>`
+                                
          detaisContainer.append(itemdiv)
 
 
@@ -184,6 +200,70 @@ const displayDetails=(product)=>{
 
 
 
-productDetails()
-;
+
+let cart = [];
+const addToCArt = (product) => {
+    
+    let existid = cart.find(item => item.id === product.id);
+    console.log(existid);
+
+    if(!existid){
+        cart.push(product);
+    }
+    const badgeCount = document.getElementById('badge-cart');
+    badgeCount.innerText = cart.length;
+    
+   
+};
+
+
+const displayCart=()=>{
+
+    const cartContainer=document.createElement('div')
+    cartContainer.classList='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-y-4 gap-x-3 mt-5 lg:px-40 sm:px-2'
+
+    mainContentArea.innerHTML='';
+    if(cart.length===0){
+         mainContentArea.innerHTML="<h1>no item add to cart</h1>"
+    }
+    else{
+
+         cart.forEach(product=>{
+         const itemdiv=document.createElement('div');
+
+        itemdiv.innerHTML=`<div class="card bg-base-100 p-2 h-auto w-96 shadow-sm">
+                                <figure class="bg-orange-50">
+                                    <img class="h-56 w-56 p-2"
+                                    src="${product.image}"
+                                    alt="Shoes" />
+                                </figure>
+                                <div class="card-body h-60">
+                                    <div class="flex justify-between ">
+                                        <span class="bg-purple-100 text-purple-500 border py-1 px-2 rounded-full"> ${product.category} </span>
+                                        <span><i class="fa-solid fa-star" style="color: rgba(255, 212, 59, 1);"></i> ${product.rating.rate} (${product.rating.count}) </span>
+                                    </div>
+                                    <h2 class="card-title">${product.title}</h2>
+                                    <p class="text-lg font-bold">$ ${product.price}</p>
+                                    <div class="card-actions justify-between">
+                                        <button class="btn btn-outline btn-primary w-full" onclick="productDetails('${product.id}')"> <i class="fa-solid fa-eye"></i>  Details</button>
+                                        
+                                    </div>
+                                </div>
+                                </div>`
+                               
+                               
+                                cartContainer.append(itemdiv);
+                                mainContentArea.append(cartContainer);
+
+
+
+    })
+
+    }
+
+
+    
+
+}
+
 

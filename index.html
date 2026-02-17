@@ -12,7 +12,7 @@
      <link rel="stylesheet" href="style.css">
 
   </head>
-  <body class="sm:p-1">
+  <body class="p-1">
 
     
    <!-- Header Navbar design start -->
@@ -42,7 +42,10 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn"><i class="fa-solid fa-cart-shopping text-2xl"></i></a>
+    <button class="btn" onclick="displayCart()" >
+      <i class="fa-solid fa-cart-shopping text-2xl"></i> <div id="badge-cart" class="badge badge-sm badge-secondary -mt-8 -ml-4 ">+0</div>
+    </button>
+    
   </div>
     </header>
    <!-- Header Navbar design end -->
@@ -152,9 +155,9 @@
    <!-- footer start  -->
     <footer class="footer bg-gray-800 text-white ">
     <div class="w-5/6 mx-auto
-     text-base-content  grid grid-cols-1 lg:grid-cols-4 px-16 py-10 sm:px-2">
+     text-base-content  grid grid-cols-1 lg:grid-cols-4 lg:px-16 py-10 sm:px-2">
     <aside class="flex-1 text-white ">
-   <a class="btn btn-ghost font-extrabold text-3xl text-purple-700">SwiftCart</a>
+   <a class=" font-extrabold text-3xl text-purple-700">SwiftCart</a>
     <p>
       SwiftCart
       <br />
@@ -183,12 +186,12 @@
     <h6 class="footer-title">Newsletter</h6>
     <fieldset class="w-80">
       <label>Enter your email address</label>
-      <div class="join">
+      <div class="join flex flex-wrap items-end">
         <input
           type="text"
           placeholder="username@site.com"
           class="input input-bordered join-item" />
-        <button class="btn btn-primary join-item">Subscribe</button>
+        <button class="btn btn-primary join-item w-full mt-1">Subscribe</button>
       </div>
     </fieldset>
   </form>
