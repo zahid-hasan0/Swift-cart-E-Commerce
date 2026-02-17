@@ -2,21 +2,21 @@
 
 
 
-const trendingProducts=async()=>{
+const trendingProducts = async () => {
 
-        const category = await fetch('https://fakestoreapi.com/products/category/jewelery')
-        const data =await category.json()
-         displayTrending(data)
-     
+    const category = await fetch('https://fakestoreapi.com/products/category/jewelery')
+    const data = await category.json()
+    displayTrending(data)
+
 
 }
- const displayTrending=(trends)=>{
-    const products=trends;
-    const trendContainer=document.getElementById('trendin-container')
-    products.forEach(product=>{
-  const itemdiv=document.createElement('div');
+const displayTrending = (trends) => {
+    const products = trends;
+    const trendContainer = document.getElementById('trendin-container')
+    products.forEach(product => {
+        const itemdiv = document.createElement('div');
 
-        itemdiv.innerHTML=`<div class="card bg-base-100 p-2 h-auto w-96 shadow-sm">
+        itemdiv.innerHTML = `<div class="card bg-base-100 p-2 h-auto w-full sm:w-96 shadow-sm">
                                 <figure class="bg-orange-50">
                                     <img class="h-56 w-56 p-2"
                                     src="${product.image}"
@@ -37,15 +37,15 @@ const trendingProducts=async()=>{
                                 </div>
                                 </div>`
 
-                                 itemdiv.querySelector('.add-to-cart').addEventListener('click', () => {
-                                    addToCArt(product);
-                                    
-                                });
+        itemdiv.querySelector('.add-to-cart').addEventListener('click', () => {
+            addToCArt(product);
 
-                                trendContainer.append(itemdiv)
+        });
+
+        trendContainer.append(itemdiv)
 
     })
-   
- }
 
- trendingProducts();
+}
+
+trendingProducts();
