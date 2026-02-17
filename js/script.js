@@ -287,8 +287,6 @@ const displayCart = () => {
         header.className = 'text-4xl text-blue-500 text-center my-5';
         header.innerText = 'My Cart';
         mainContentArea.append(header);
-
-        // Calculate Total
         let totalPrice = 0;
         cart.forEach(product => {
             totalPrice += product.price;
@@ -315,11 +313,10 @@ const displayCart = () => {
             cartContainer.append(itemdiv);
         })
         mainContentArea.append(cartContainer);
-        // Display Total Price
         const totalDiv = document.createElement('div');
         totalDiv.className = 'text-center my-10';
         totalDiv.innerHTML = `
-            <h2 class="text-3xl font-bold">Total Price: $${totalPrice.toFixed(2)}</h2>
+            <h2 class="text-3xl font-bold">Total Price: $${totalPrice}</h2>
         `;
         mainContentArea.append(totalDiv);
 
