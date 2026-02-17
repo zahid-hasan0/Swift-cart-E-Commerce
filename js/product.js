@@ -32,10 +32,15 @@ const trendingProducts=async()=>{
                                     <div class="card-actions justify-between">
                                         <button class="btn btn-outline btn-primary" onclick="my_modal_5.showModal(); productDetails('${product.id}')"> <i class="fa-solid fa-eye"></i>  Details</button>
                                         
-                                        <button class="btn btn-primary" onclick="productDetails('${product.id}"> <i class="fa-solid fa-cart-shopping text-white"></i> Add</button>
+                                         <button class="btn btn-primary add-to-cart" > <i class="fa-solid fa-cart-shopping text-white"></i> Add to cart</button>
                                     </div>
                                 </div>
                                 </div>`
+
+                                 itemdiv.querySelector('.add-to-cart').addEventListener('click', () => {
+                                    addToCArt(product);
+                                    
+                                });
 
                                 trendContainer.append(itemdiv)
 

@@ -31,11 +31,38 @@ item.addEventListener('click',()=>{
        
     }
     else if(item.innerText=='About'){
-        mainContentArea.innerHTML=''
+        mainContentArea.innerHTML=`
+                 <div class="bg-sky-100 w-2/4 sm:w-full h-96 flex justify-center items-center flex-col my-20 mx-auto rounded-xl p-4">
+                 <i class="fa-solid fa-circle-info fa-2xl " style="color: rgba(211, 16, 16, 1.00);"></i>
+            <h1 class="text-3xl text-center my-8">About page under construction </h1>
+            <p>Plese select some other  tab to visit </p>
+         </div>
+
+        
+        `
         
     }
    else if(item.innerText=='Contact'){
-        mainContentArea.innerHTML=''
+        mainContentArea.innerHTML=`
+        
+        <div class="flex flex-col items-center justify-center my-16 h-fit">
+
+        <h1 class="text-4xl my-2 text-violet-500"> Please contact Us</h1>
+        
+                    <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-sm h-auto border p-10 ">
+
+                    <label class="label">Email</label>
+                    <input type="email" class="input" placeholder="Email" />
+
+                    <label class="label">Password</label>
+                    <input type="password" class="input" placeholder="Password" />
+
+                    <button class="btn btn-neutral mt-4">submit</button>
+                    </fieldset>
+        </div>
+         
+        
+        `
     }
 });
 
@@ -209,6 +236,10 @@ const addToCArt = (product) => {
 
     if(!existid){
         cart.push(product);
+        alert("Item added Successfully")
+    }
+    else{
+        alert("item already added cart please check")
     }
     const badgeCount = document.getElementById('badge-cart');
     badgeCount.innerText = cart.length;
@@ -218,16 +249,29 @@ const addToCArt = (product) => {
 
 
 const displayCart=()=>{
+    
 
     const cartContainer=document.createElement('div')
     cartContainer.classList='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-y-4 gap-x-3 mt-5 lg:px-40 sm:px-2'
 
     mainContentArea.innerHTML='';
     if(cart.length===0){
-         mainContentArea.innerHTML="<h1>no item add to cart</h1>"
+         mainContentArea.innerHTML=`
+
+         <div class="bg-sky-100 w-2/4 h-96 flex justify-center items-center flex-col my-14 mx-auto rounded-xl">
+            <h1 class="text-3xl text-center">No Item Found </h1>
+            <p>Plese select some item to cart and order </p>
+         </div>
+         
+         
+         `
     }
     else{
 
+                const header = document.createElement('h1');
+            header.className = 'text-4xl text-purple-500 text-center my-5';
+            header.innerText = 'My Cart';
+            mainContentArea.append(header); 
          cart.forEach(product=>{
          const itemdiv=document.createElement('div');
 
@@ -250,8 +294,6 @@ const displayCart=()=>{
                                     </div>
                                 </div>
                                 </div>`
-                               
-                               
                                 cartContainer.append(itemdiv);
                                 mainContentArea.append(cartContainer);
 
