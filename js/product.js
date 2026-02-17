@@ -24,7 +24,7 @@ const displayTrending = (trends) => {
                                 </figure>
                                 <div class="card-body h-60">
                                     <div class="flex justify-between ">
-                                        <span class="bg-purple-100 text-purple-500 border py-1 px-2 rounded-full"> ${product.category} </span>
+                                        <span class="bg-blue-100 text-blue-500 border py-1 px-2 rounded-full"> ${product.category} </span>
                                         <span><i class="fa-solid fa-star" style="color: rgba(255, 212, 59, 1);"></i> ${product.rating.rate} (${product.rating.count}) </span>
                                     </div>
                                     <h2 class="card-title">${product.title}</h2>

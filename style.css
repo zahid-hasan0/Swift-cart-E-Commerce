@@ -1,20 +1,19 @@
-*{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-ul li a{
+ul li a {
     font: normal;
     font-size: 1rem;
 }
 
-.active{
-    color: rgb(195, 0, 244);
+.active {
+    color: rgb(0, 4, 244);
     font-weight: bolder;
 
 }
 
-.activeP{
-    background: #b224ff;
+.activeP {
+    background: #3a24ff;
     color: white;
 }
-
